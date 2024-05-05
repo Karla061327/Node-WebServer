@@ -2,3 +2,4 @@
 node_modeules/
 keys/
 .env/  
+postgres/

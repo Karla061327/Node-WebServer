@@ -25,7 +25,8 @@ interface Options{
     async start() {
 
         //*Middlewar
-        this.app.use(express.json());
+        this.app.use(express.json()); //raw
+        this.app.use(express.urlencoded({extended: true})); //x-www-form-urlencoded
 
         //* Public Folder
         this.app.use(express.static(this.publicPath));
