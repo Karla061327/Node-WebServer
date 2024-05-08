@@ -10,10 +10,12 @@ interface Options{
 
  export class Server { 
 
-    private app = express();
+    public readonly app = express();
+    private serverListener? : any;
     private readonly port: number;
     private readonly publicPath: string;
     private readonly routes: Router;
+     static mock: any;
 
     constructor(options: Options) {
         const {port, routes, public_path = 'public'} = options;
@@ -42,9 +44,11 @@ interface Options{
         });
   
         
-        this.app.listen(this.port,() => {
+        this.serverListener =  this.app.listen(this.port,() => {
             console.log(`Server on port ${this.port}`);
-        })
-        
+        });
+    }
+    public close() {
+        this.serverListener?.close();
     }
  }

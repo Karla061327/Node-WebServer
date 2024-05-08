@@ -1,5 +1,5 @@
 
-node_modeules/
+node_modules/
 keys/
 .env/  
-postgres/
+envs.ts/

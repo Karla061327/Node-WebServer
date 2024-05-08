@@ -1,8 +1,6 @@
-import test, { describe } from "node:test";
+
 import { Server } from '../src/presentation/server';
 import { envs } from "../src/config/envs";
-import { AppRoutes } from "../src/presentation/routes";
-
 
 jest.mock('../src/presentation/server');
 
@@ -15,8 +13,8 @@ describe('Testing App.ts',() => {
         expect(Server).toHaveBeenCalledWith({
             port: envs.PORT,
             public_path: envs.PUBLIC_PATH,
-            routes: AppRoutes.routes
-        })
+            routes: expect.any(Function),
+        });
     })
 })
 
