@@ -1,5 +1,7 @@
 
 node_modules/
 keys/
-.env/  
-envs.ts/
+.env
+postgres/
+dist/
+coverage/
